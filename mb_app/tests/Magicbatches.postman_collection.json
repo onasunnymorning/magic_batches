@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "0382a5cc-45d8-484a-84ee-80ab3f383ad9",
+		"name": "Magicbatches",
+		"description": "# Introduction\nIt creates and documents batch\n\n# Overview\nThis is very first dirty version\n\n# Authentication\nNo authentiation at this point\n\n# Error Codes\nwe'll see\n\n# Rate limit\nEverything wide open",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "batch",
+			"item": [
+				{
+					"name": "post batch CUZ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d3fe0fe-4da8-485a-baeb-447979dbea0f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"cuz\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/batch/cuz",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"batch",
+								"cuz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post batch duplicate CUZ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0a71569-4a46-4eba-b4b4-edd5e7b10e31",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"1062 (23000): Duplicate entry 'cuz' for key 'name_UNIQUE'\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/batch/cuz",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"batch",
+								"cuz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post batch PIU",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ca65aef2-2742-440e-9e2f-7de24b66b738",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"piu\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/batch/piu",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"batch",
+								"piu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get listBatches",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eb335539-7f95-4422-8409-5227d076421c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"cuz\");",
+									"    pm.expect(pm.response.text()).to.include(\"piu\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v1/listBatches",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"listBatches"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
